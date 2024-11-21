@@ -12,6 +12,6 @@
         <h1 class="text-3xl font-bold underline text-center">
             Hello world!
         </h1>
-        <p class="text-center">I'am a Megatron Leader Of Decepticons</p>
+        <h1 class="text-3xl font-bold underline text-center bg-red-800">KASIH PAHAM </h1>
     </body>
 </html>
