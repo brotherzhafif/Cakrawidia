@@ -46,21 +46,23 @@ Cakrawidia adalah platform berbasis website yang menyediakan ruang diskusi untuk
 1. Pastikan semua persyaratan sistem telah terinstal.  
 2. Clone repository ini ke direktori lokal Anda.  
 3. Jalankan perintah berikut untuk memulai:  
-   - **Clone:**
+   - **Clone**
    - ```bash
      git clone https://github.com/brotherzhafif/Cakrawidia.git
      cd Cakrawidia
      ```  
-   - **Inisiasi:**  
+   - **Inisiasi**  
      ```bash
      npm i
      composer install
+     php artisan key:generate
+     php artisan migrate
      ```   
-   - **Frontend:**  
+   - **Frontend**  
      ```bash
      npm run dev
      ```  
-   - **Backend:**  
+   - **Backend**  
      ```bash
      php artisan serve
      ```  
