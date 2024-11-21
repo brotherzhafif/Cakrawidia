@@ -35,11 +35,12 @@ Cakrawidia adalah platform berbasis website yang menyediakan ruang diskusi untuk
    - Menampilkan topik diskusi dan materi yang paling banyak dikunjungi di beranda.  
 
 ## Persyaratan Sistem  
-- **C++ Redistributable**  
-- **Node.js**  
-- **npm**  
-- **Composer**  
-- **XAMPP** (untuk PHP dan Apache)  
+- **C++ Redistributable Latest**  
+- **Node.js 22.11.0**  
+- **npm 10.9.0**  
+- **Composer Latest**  
+- **Apache Latest**
+- **PHP 8.2.12**
 
 ## Cara Menjalankan Aplikasi  
 
