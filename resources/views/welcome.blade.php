@@ -8,9 +8,10 @@
         @vite('resources/css/app.css')
 
     </head>
-    <body class="font-sans antialiased dark:bg-black dark:text-white/50">
-        <h1 class="text-3xl font-bold underline">
+    <body class="font-sans antialiased dark:bg-black dark:text-white/50 ">
+        <h1 class="text-3xl font-bold underline text-center">
             Hello world!
         </h1>
+        <p class="text-center">I'am a Megatron Leader Of Decepticons</p>
     </body>
 </html>
