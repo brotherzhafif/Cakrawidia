@@ -1,11 +1,21 @@
 <?php
-
-use Illuminate\Support\Facades\Route;
-
 Route::get('/', function () {
-    return view('welcome');
+    return view('home');
 });
 
-Route::get('/hitam', function () {
-    return view('hitam');
+Route::get('/profileUser', function () {
+    return view('profileUser');
+});
+
+Route::get('/register', function () {
+    return view('/auth/register');
+});
+
+Route::get('/login', function () {
+    return view('/auth/login');
+});
+
+
+Route::get('/viewQuestion', function () {
+    return view('viewQuestion');
 });
