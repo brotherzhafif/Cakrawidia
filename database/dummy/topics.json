@@ -1,0 +1,22 @@
+[
+  {
+    "id": 1,
+    "name": "Artificial Intelligence"
+  },
+  {
+    "id": 2,
+    "name": "Web Development"
+  },
+  {
+    "id": 3,
+    "name": "Mobile App Design"
+  },
+  {
+    "id": 4,
+    "name": "Data Science"
+  },
+  {
+    "id": 5,
+    "name": "Cybersecurity"
+  }
+]
