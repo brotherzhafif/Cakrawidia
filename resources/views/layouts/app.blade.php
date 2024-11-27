@@ -15,7 +15,7 @@
     @include('partials.navbar')
 
     <!-- Main content area -->
-    <div class="flex-1">
+    <div class="w-full flex flex-col items-start justify-center grow">
         @yield('content')
     </div>
 
