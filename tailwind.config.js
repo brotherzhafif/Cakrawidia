@@ -12,8 +12,9 @@ module.exports = {
 
     theme: {
         extend: {
-            fontFamily: {
-                sans: ['Figtree', ...defaultTheme.fontFamily.sans],  // Menambahkan font custom
+            colors: {
+                primary: '#FBFBFB', 
+                secondary: '#272829',  
             },
         },
     },

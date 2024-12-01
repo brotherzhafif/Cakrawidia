@@ -3,36 +3,24 @@ export default function Navbar() {
         <div className="sticky shadow-md top-0 z-20 navbar bg-base-100">
             <div className="flex justify-between w-full gap-7">
                 <input id="my-drawer-4" type="checkbox" className="drawer-toggle" />
-                
                 <div>
-                    {/* Page content here */}
-                    <label htmlFor="my-drawer-4" className="btn btn-circle swap swap-rotate">
-                        {/* this hidden checkbox controls the state */}
-                        <input type="checkbox" className="hidden" />
-                        {/* hamburger icon */}
+                    <label htmlFor="my-drawer-4" className="btn btn-circle hover:bg-secondary/80 bg-secondary ">
+                        <input type="checkbox" className="hidden" /> {/* Corrected type */}
                         <svg
-                            className="swap-off fill-current"
                             xmlns="http://www.w3.org/2000/svg"
-                            width="32"
-                            height="32"
-                            viewBox="0 0 512 512">
-                            <path d="M64,384H448V341.33H64Zm0-106.67H448V234.67H64ZM64,128v42.67H448V128Z" />
+                            x="0px"
+                            y="0px"
+                            width="25"
+                            height="25"
+                            viewBox="0 0 50 50"
+                        >
+                            <path
+                            d="M 5 8 A 2.0002 2.0002 0 1 0 5 12 L 45 12 A 2.0002 2.0002 0 1 0 45 8 L 5 8 z M 5 23 A 2.0002 2.0002 0 1 0 5 27 L 45 27 A 2.0002 2.0002 0 1 0 45 23 L 5 23 z M 5 38 A 2.0002 2.0002 0 1 0 5 42 L 45 42 A 2.0002 2.0002 0 1 0 45 38 L 5 38 z"
+                            fill="white"
+                            ></path>
                         </svg>
-
-                        {/* close icon */}
-                        <svg
-                            className="swap-on fill-current"
-                            xmlns="http://www.w3.org/2000/svg"
-                            width="32"
-                            height="32"
-                            viewBox="0 0 512 512">
-                            <polygon
-                            points="400 145.49 366.51 112 256 222.51 145.49 112 112 145.49 222.51 256 112 366.51 145.49 400 256 289.49 366.51 400 400 366.51 289.49 256 400 145.49" />
-                        </svg>
-                    </label>
+                        </label>
                 </div>
-
-                {/* Drawer Side */}
                 <div className="drawer-side">
                     <label htmlFor="my-drawer-4" aria-label="close sidebar" className="drawer-overlay"></label>
                     <ul className="menu shadow-md bg-white rounded-lg text-base-content min-h-full w-80 transition-all duration-1000 ease-in-out">
@@ -42,10 +30,7 @@ export default function Navbar() {
                     </ul>
                 </div>
 
-                {/* Search Input */}
                 <input type="text" placeholder="Search" className="input input-bordered rounded-full w-full" />
-
-                {/* Profile Dropdown */}
                 <div className="dropdown dropdown-end">
                     <div tabIndex="0" role="button" className="btn btn-ghost btn-circle avatar">
                         <div className="w-10 rounded-full">
@@ -54,8 +39,6 @@ export default function Navbar() {
                                 src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp" />
                         </div>
                     </div>
-
-                    {/* Dropdown Profile */}
                     <ul
                         tabIndex="0"
                         className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow">

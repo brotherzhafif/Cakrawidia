@@ -30,13 +30,12 @@ export default function Home() {
                     <div className="flex flex-col w-full mt-2 justify-center">
                         <select className="select bordered border-zinc-950 w-full max-w-xs">
                             <option disabled selected className="border">Kategori</option>
-                            <option>Homer</option>
+                            <option>Home</option>
                             <option>Marge</option>
                             <option>Bart</option>
                             <option>Lisa</option>
                             <option>Maggie</option>
                         </select>
-
                     <button className="btn btn-primary mt-5 font-bold">Ajukan</button>
                     </div>
 
