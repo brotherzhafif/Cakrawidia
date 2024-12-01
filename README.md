@@ -58,11 +58,11 @@ Cakrawidia adalah platform berbasis website yang menyediakan ruang diskusi untuk
      composer install
      ```
     - **Inisiasi Env**
-      > buat file .env isi filenya sesuai .env_example lalu jalankan dibawah ini
-     ```bash
-     php artisan key:generate
-     php artisan migrate
-     ```   
+       > buat file .env isi filenya sesuai .env_example lalu jalankan dibawah ini
+         ```bash
+         php artisan key:generate
+         php artisan migrate
+         ```   
    - **Frontend**  
      ```bash
      npm run dev
