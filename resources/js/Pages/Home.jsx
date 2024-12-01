@@ -7,14 +7,14 @@ export default function Home() {
         <Head title="Home" />
         <div data-theme="light" className="flex flex-col min-h-screen justify-between">
         <Navbar />
-            <div className=" flex flex-col gap-2 grow items-center justify-center">
+            <div className=" flex flex-col gap-2 p-2 items-center justify-center">
                 <h1 className="
                 text-center
                 text-6xl 
                 font-bold
                 ">Dari bertanya Menjadi mahir tanya jawa</h1>
                 {/* The button to open modal */}
-                <label htmlFor="my_modal_6" className="mt-5 btn w-1/2">Mulai bertanya</label>
+                <label htmlFor="my_modal_6" className="mt-5 btn w-1/2 bg-secondary hover:bg-secondary/80 text-primary">Mulai bertanya</label>
                 {/* Put this part before </body> tag */}
                 <input type="checkbox" id="my_modal_6" className="modal-toggle" />
                 <div className="modal" role="dialog">
