@@ -6,16 +6,20 @@ use App\Models\Like;
 use App\Models\Question;
 use App\Models\Answer;
 use Illuminate\Http\Request;
+use Illuminate\Routing\Controller;
 
 class LikeController extends Controller
 {
-    // Get all likes
+    public function __construct()
+    {
+        $this->middleware('auth')->only(['store', 'destroy']);
+    }
+
     public function index()
     {
         return response()->json(Like::all());
     }
 
-    // Get likes for a specific entity
     public function getLikesByEntity($entityType, $entityId)
     {
         $likes = Like::where('entity_type', $entityType)
@@ -25,7 +29,6 @@ class LikeController extends Controller
         return response()->json($likes);
     }
 
-    // Create a new like
     public function store(Request $request)
     {
         $validated = $request->validate([
@@ -49,7 +52,6 @@ class LikeController extends Controller
         return response()->json($like, 201);
     }
 
-    // Delete a like
     public function destroy($id)
     {
         $like = Like::find($id);

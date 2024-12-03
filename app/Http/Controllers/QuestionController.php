@@ -4,16 +4,21 @@ namespace App\Http\Controllers;
 
 use App\Models\Question;
 use Illuminate\Http\Request;
+use Illuminate\Routing\Controller;
 
 class QuestionController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth')->only(['store', 'update', 'destroy']);
+    }
+
     // Get all questions
     public function index()
     {
         return response()->json(Question::with(['user', 'topic'])->get());
     }
 
-    // Get a single question
     public function show($id)
     {
         $question = Question::with(['user', 'topic'])->find($id);
@@ -23,7 +28,6 @@ class QuestionController extends Controller
         return response()->json($question);
     }
 
-    // Create a new question
     public function store(Request $request)
     {
         $validated = $request->validate([
@@ -37,7 +41,6 @@ class QuestionController extends Controller
         return response()->json($question, 201);
     }
 
-    // Update a question
     public function update(Request $request, $id)
     {
         $question = Question::find($id);
@@ -56,7 +59,6 @@ class QuestionController extends Controller
         return response()->json($question);
     }
 
-    // Delete a question
     public function destroy($id)
     {
         $question = Question::find($id);

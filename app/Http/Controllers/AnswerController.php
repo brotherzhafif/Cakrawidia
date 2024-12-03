@@ -4,16 +4,21 @@ namespace App\Http\Controllers;
 
 use App\Models\Answer;
 use Illuminate\Http\Request;
+use Illuminate\Routing\Controller;
 
 class AnswerController extends Controller
 {
-    // Get all answers
+    public function __construct()
+    {
+        // Middleware untuk memastikan hanya pengguna yang sudah login yang bisa menjawab, mengedit, atau menghapus jawaban
+        $this->middleware('auth')->only(['store', 'update', 'destroy']);
+    }
+
     public function index()
     {
         return response()->json(Answer::with(['question', 'user'])->get());
     }
 
-    // Get a single answer
     public function show($id)
     {
         $answer = Answer::with(['question', 'user'])->find($id);
@@ -23,7 +28,6 @@ class AnswerController extends Controller
         return response()->json($answer);
     }
 
-    // Create a new answer
     public function store(Request $request)
     {
         $validated = $request->validate([
@@ -36,7 +40,6 @@ class AnswerController extends Controller
         return response()->json($answer, 201);
     }
 
-    // Update an answer
     public function update(Request $request, $id)
     {
         $answer = Answer::find($id);
@@ -53,7 +56,6 @@ class AnswerController extends Controller
         return response()->json($answer);
     }
 
-    // Delete an answer
     public function destroy($id)
     {
         $answer = Answer::find($id);
@@ -65,4 +67,3 @@ class AnswerController extends Controller
         return response()->json(['message' => 'Answer deleted successfully']);
     }
 }
-

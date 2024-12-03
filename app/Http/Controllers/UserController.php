@@ -4,17 +4,21 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
-    // Get all users
+    public function __construct()
+    {
+        $this->middleware('auth')->only(['update', 'destroy']);
+    }
+
     public function index()
     {
         return response()->json(User::all());
     }
 
-    // Get a single user
     public function show($id)
     {
         $user = User::find($id);
@@ -24,7 +28,6 @@ class UserController extends Controller
         return response()->json($user);
     }
 
-    // Create a new user
     public function store(Request $request)
     {
         $validated = $request->validate([
@@ -34,13 +37,12 @@ class UserController extends Controller
             'role' => 'in:registered,anonymous',
         ]);
 
-        $validated['password'] = Hash::make($validated['password']); // Hash password
+        $validated['password'] = Hash::make($validated['password']);
 
         $user = User::create($validated);
         return response()->json($user, 201);
     }
 
-    // Update a user
     public function update(Request $request, $id)
     {
         $user = User::find($id);
@@ -49,22 +51,20 @@ class UserController extends Controller
         }
 
         $validated = $request->validate([
-            'username' => 'unique:users,username|max:255',
-            'email' => 'unique:users,email|email|max:255',
+            'username' => 'nullable|unique:users,username|max:255',
+            'email' => 'nullable|email|max:255',
             'password' => 'nullable|min:6',
-            'role' => 'in:registered,anonymous',
-            'points' => 'integer|min:0',
+            'role' => 'nullable|in:registered,anonymous',
         ]);
 
         if (isset($validated['password'])) {
-            $validated['password'] = Hash::make($validated['password']); // Hash password
+            $validated['password'] = Hash::make($validated['password']);
         }
 
         $user->update($validated);
         return response()->json($user);
     }
 
-    // Delete a user
     public function destroy($id)
     {
         $user = User::find($id);

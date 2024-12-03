@@ -4,16 +4,21 @@ namespace App\Http\Controllers;
 
 use App\Models\Topic;
 use Illuminate\Http\Request;
+use Illuminate\Routing\Controller;
 
 class TopicController extends Controller
 {
-    // Get all topics
+    public function __construct()
+    {
+        // Middleware untuk memastikan hanya pengguna yang sudah login yang bisa membuat, mengedit, atau menghapus topik
+        $this->middleware('auth')->only(['store', 'update', 'destroy']);
+    }
+
     public function index()
     {
         return response()->json(Topic::all());
     }
 
-    // Get a single topic
     public function show($id)
     {
         $topic = Topic::find($id);
@@ -23,7 +28,6 @@ class TopicController extends Controller
         return response()->json($topic);
     }
 
-    // Create a new topic
     public function store(Request $request)
     {
         $validated = $request->validate([
@@ -34,7 +38,6 @@ class TopicController extends Controller
         return response()->json($topic, 201);
     }
 
-    // Update a topic
     public function update(Request $request, $id)
     {
         $topic = Topic::find($id);
@@ -50,7 +53,6 @@ class TopicController extends Controller
         return response()->json($topic);
     }
 
-    // Delete a topic
     public function destroy($id)
     {
         $topic = Topic::find($id);
