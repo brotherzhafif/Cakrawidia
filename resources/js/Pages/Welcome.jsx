@@ -1,6 +1,6 @@
 import { Head, Link } from '@inertiajs/react';
-import Navbar from '@/Components/Navbar';
-import Footer from '@/Components/Footer';
+import Navbar from '@/partials/Navbar';
+import Footer from '@/partials/Footer';
 
 export default function Welcome({ auth, laravelVersion, phpVersion }) {
     const handleImageError = () => {

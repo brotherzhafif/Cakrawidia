@@ -6,9 +6,8 @@ const Button = ({ text, onClick, color = 'primary', size = 'md', disabled = fals
   
     // Menambahkan warna berdasarkan props color
     const colorClass = `bg-${color} hover:bg-${color}-700 text-white font-bold py-2 px-4 rounded`;
-  
+
     const disabledClass = disabled ? 'opacity-50 cursor-not-allowed' : '';
-  
     return (
       <button
         onClick={onClick}
@@ -19,6 +18,4 @@ const Button = ({ text, onClick, color = 'primary', size = 'md', disabled = fals
       </button>
     );
   };
-
-  
 export default Button;
