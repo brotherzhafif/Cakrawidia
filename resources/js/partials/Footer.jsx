@@ -1,6 +1,6 @@
 export default function Footer() {
     return (
-        <footer className="footer-center bg-neutral text-neutral-content p-5">
+        <footer className="footer-center  bg-neutral text-neutral-content p-5">
             <aside className="p-3">
                 <img className="bg-white rounded-full w-16 p-1" src="/assets/img/logo.png" alt="Logo" />
                 <p className="mt-1 font-bold">Cakrawidia</p>
