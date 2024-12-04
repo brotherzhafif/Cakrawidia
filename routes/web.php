@@ -7,3 +7,7 @@ Route::get('/', function () {
     return Inertia::render('Home', [
     ]);
 });
+
+Route::get('/ProfileUser', function () {
+    return Inertia::render('ProfileUser', []);
+})->name('ProfileUser');
