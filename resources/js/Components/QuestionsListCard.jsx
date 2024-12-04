@@ -4,11 +4,8 @@ import Hero from "./Hero";
 import dayjs from "dayjs";
 import "dayjs/locale/id";  
 import relativeTime from "dayjs/plugin/relativeTime";
-dayjs.extend(relativeTime);
-
-    
-
 import PrimaryButton from "./Buttons/PrimaryButton";
+dayjs.extend(relativeTime);
 
 const QuestionsListCard = () => {
     const [answers, setAnswers] = useState([]);
@@ -22,7 +19,6 @@ const QuestionsListCard = () => {
         const fetchAnswers = axios.get("api/answers");
         const fetchTopics = axios.get("api/topics");
         const fetchQuestions = axios.get("api/questions");
-
 
         Promise.all([fetchAnswers, fetchTopics, fetchQuestions])
             .then(([answersRes, topicsRes, questionsRes]) => {
@@ -48,12 +44,9 @@ const QuestionsListCard = () => {
             .catch((error) => console.error("Error fetching data:", error))
             .finally(() => setLoading(false));
     }, []);
-
     const loadMore = () => {
         setVisibleCount((prevCount) => prevCount + 10); // Tambah 10 item setiap klik
     };
-
-
 
     if (loading) {
         return (
@@ -63,7 +56,7 @@ const QuestionsListCard = () => {
         );
     }
     return (
-        <div className=" rounded-xl col-span-6 flex flex-col justify-center border border-secondary items-center ">
+        <div className=" rounded-xl col-span-12 md:col-span-6 flex flex-col justify-center border border-secondary items-center ">
             <Hero />
             {answers.slice(0, visibleCount).map((answer) => (
                 <div key={answer.id} className="w-full flex flex-col justify-between border min-h-[200px] border-b-secondary/30 gap-5 p-5">

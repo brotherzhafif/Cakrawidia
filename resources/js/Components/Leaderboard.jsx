@@ -36,7 +36,7 @@ function Leaderboard() {
   }
 
   return (
-    <div className='col-span-3 p-2 border-secondary/30  border rounded-xl'>
+    <div className='col-span-12 md:col-span-3 p-2 border-secondary/30  border rounded-xl'>
       <h1 className='font-bold p-2  border-b-2 border-secondary/30'>Cakra Tercerdas</h1>
       <table className='flex flex-col'>
         <tbody>

@@ -27,7 +27,7 @@ function TopicsCategory() {
   if (error) return <p>Error: {error}</p>;
 
   return (
-    <div className='col-span-3 flex flex-col gap-2 '>
+    <div className='col-span-12 hidden md:col-span-3 md:flex flex-col gap-2 '>
       <h1 className='font-bold border-b-2 p-2 border-secondary/30'>Topik</h1>
       <ul className=' flex flex-col gap-2 '>
         <h1 className='bg-secondary text-primary p-2 font-bold rounded-md '>Semua topik</h1>
