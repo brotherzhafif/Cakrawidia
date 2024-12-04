@@ -41,10 +41,10 @@ function Leaderboard() {
       <table className='flex flex-col'>
         <tbody>
           {users.slice(0, visibleCount).map((user, index) => (
-            <tr className='flex items-center justify-between' key={user.id}>
-              <td className='font-semibold'>{index + 1}</td>
-              <td className='font-semibold'>{user.username}</td>
-              <td className='font-semibold'>{user.points}</td>
+            <tr className='flex font-medium items-center justify-between' key={user.id}>
+              <td className=''>{index + 1}</td>
+              <td className=''>{user.username}</td>
+              <td className=''>{user.points} poin</td>
             </tr>
           ))}
         </tbody>

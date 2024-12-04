@@ -14,7 +14,7 @@ export default function Home() {
             <LayoutApp>
                 <Navbar />
                 <GridHome>
-                    <TopicsCategory />
+                    <TopicsCategory/>
                     <QuestionsListCard />
                     <Leaderboard />
                 </GridHome>

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
-function TopicsCategory() {
+function Sidebar() {
   const [topics, setTopics] = useState([]);  // Untuk menyimpan data topik
   const [loadingTopics, setLoading] = useState(true);  // Untuk menandakan apakah data sedang di-load
   const [error, setError] = useState(null);  // Untuk menampilkan error jika ada
@@ -28,12 +28,12 @@ function TopicsCategory() {
 
   return (
     
-    <div className='col-span-12 hidden md:flex md:col-span-3 flex-col gap-2 '>
+    <div className='flex flex-col gap-2 '>
       <h1 className='font-bold border-b-2 p-2 border-secondary/30'>Topik</h1>
       <ul className=' flex flex-col gap-2 '>
         <h1 className='bg-secondary text-primary p-2 font-bold rounded-md '>Semua topik</h1>
         {topics.map(topic => (
-          <li className='p-2 rounded-md hover:bg-secondary/10' key={topic.id}>
+          <li key={topic.id}>
             {/* <img src="" alt="" /> */}
             <a className='font-bold' href="">{topic.name} </a>
           </li>
@@ -43,6 +43,6 @@ function TopicsCategory() {
   );
 }
 
-export default  TopicsCategory;
+export default  Sidebar;
 
 

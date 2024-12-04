@@ -1,36 +1,24 @@
 import { Link } from '@inertiajs/react';
 import Logo from './Logo';
+import LabelButton from '@/Components/Buttons/LabelBtn';
+import Sidebar from './Sidebar';
 export default function Navbar() {
     return (
         <div className="sticky shadow-md top-0 z-20 navbar bg-base-100">
-            <div className="flex justify-between w-full gap-7">
+            <div className="flex justify-between w-full gap-1">
+                <Logo />
                 <input id="my-drawer-4" type="checkbox" className="drawer-toggle" />
-                <div>
-                    {/* logo */}
-                    <Logo />
-                    <label htmlFor="my-drawer-4" className="btn btn-circle flex md:hidden hover:bg-secondary/80 bg-secondary ">
-                        <input type="checkbox" className="hidden" /> {/* Corrected type */}
-                        <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            x="0px"
-                            y="0px"
-                            width= "25"
-                            height="25"
-                            viewBox="0 0 50 50"
-                        >
-                            <path
-                            d="M 5 8 A 2.0002 2.0002 0 1 0 5 12 L 45 12 A 2.0002 2.0002 0 1 0 45 8 L 5 8 z M 5 23 A 2.0002 2.0002 0 1 0 5 27 L 45 27 A 2.0002 2.0002 0 1 0 45 23 L 5 23 z M 5 38 A 2.0002 2.0002 0 1 0 5 42 L 45 42 A 2.0002 2.0002 0 1 0 45 38 L 5 38 z"
-                            fill="white"
-                            ></path>
-                        </svg>
-                        </label>
-                </div>
+                <LabelButton
+                htmlFor="my-drawer-4"
+                src={"https://img.icons8.com/?size=100&id=83195&format=png&color=FFFFFF"}
+                className='flex md:hidden btn btn-md btn-circle p-1'                
+                >
+
+                </LabelButton>
                 <div className="drawer-side">
                     <label htmlFor="my-drawer-4" aria-label="close sidebar" className="drawer-overlay"></label>
-                    <ul className="menu shadow-md bg-white rounded-lg text-base-content min-h-full w-80 transition-all duration-1000 ease-in-out">
-                        {/* Sidebar content here */}
-                        <li><a>ISINYA APA?</a></li>
-                        <li><a>ISINYA APA?</a></li>
+                    <ul className= "menu shadow-md bg-white rounded-xl text-base-content min-h-full w-80 transition-all duration-1000 ease-in-out">
+                        <Sidebar />
                     </ul>
                 </div>
                 <input type="text" placeholder="Search" className="input input-bordered rounded-full w-full" />

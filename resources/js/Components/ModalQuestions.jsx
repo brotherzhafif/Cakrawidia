@@ -1,4 +1,4 @@
-import LabelButton from "./Buttons/ModalLabelBtn"
+import LabelButton from "./Buttons/LabelBtn"
 import PrimaryButton from "./Buttons/PrimaryButton"
 import TopicsDropdown from "./TopicsDropdown"
 import Textarea from "./TextArea"
