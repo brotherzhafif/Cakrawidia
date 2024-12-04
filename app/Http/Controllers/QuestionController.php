@@ -8,24 +8,9 @@ use Illuminate\Http\Request;
 class QuestionController extends Controller
 {
     // Get all questions
-    public function index(Request $request)
+    public function index()
     {
-        $query = Question::query();
-
-        // Filter berdasarkan judul
-        if ($request->has('title')) {
-            $query->where('title', 'like', '%' . $request->input('title') . '%');
-        }
-
-        // Filter berdasarkan topic_id
-        if ($request->has('topic_id')) {
-            $query->where('topic_id', $request->input('topic_id'));
-        }
-
-        // Tambahkan pagination
-        $questions = $query->paginate(10); // Pagination 10 item per halaman
-
-        return response()->json($questions);
+        return response()->json(Question::with(['user', 'topic'])->get());
     }
 
     // Get a single question
