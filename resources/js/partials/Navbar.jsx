@@ -1,12 +1,14 @@
 import { Link } from '@inertiajs/react';
-
+import Logo from './Logo';
 export default function Navbar() {
     return (
         <div className="sticky shadow-md top-0 z-20 navbar bg-base-100">
             <div className="flex justify-between w-full gap-7">
                 <input id="my-drawer-4" type="checkbox" className="drawer-toggle" />
                 <div>
-                    <label htmlFor="my-drawer-4" className="btn btn-circle hover:bg-secondary/80 bg-secondary ">
+                    {/* logo */}
+                    <Logo />
+                    <label htmlFor="my-drawer-4" className="btn btn-circle flex md:hidden hover:bg-secondary/80 bg-secondary ">
                         <input type="checkbox" className="hidden" /> {/* Corrected type */}
                         <svg
                             xmlns="http://www.w3.org/2000/svg"
@@ -31,7 +33,6 @@ export default function Navbar() {
                         <li><a>ISINYA APA?</a></li>
                     </ul>
                 </div>
-
                 <input type="text" placeholder="Search" className="input input-bordered rounded-full w-full" />
                 <div className="dropdown dropdown-end">
                     <div tabIndex="0" role="button" className="btn btn-ghost btn-circle avatar">
