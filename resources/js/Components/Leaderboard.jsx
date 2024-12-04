@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import PrimaryButton from './Buttons/PrimaryButton';
 
 function Leaderboard() {
   const [users, setUsers] = useState([]);
@@ -26,17 +27,17 @@ function Leaderboard() {
     setVisibleCount((prevCount) => prevCount + 5); // Tambah 5 pengguna saat tombol diklik
   };
 
-  // if (loading) {
-  //   return <div>Loading...</div>;
-  // }
+  if (loading) {
+    return <div className='flex animate-pulse bg-slate-900 col-span-3 min-h-screen'>Loading...</div>;
+  }
 
-  // if (error) {
-  //   return <div>{error}</div>;
-  // }
+  if (error) {
+    return <div>{error}</div>;
+  }
 
   return (
-    <div className='bg-red-400 col-span-3 p-2'>
-      <h1 className='font-bold bg-orange-400 border-b-2 border-secondary'>Cakra Tercerdas</h1>
+    <div className='col-span-3 p-2 border-secondary/30  border rounded-xl'>
+      <h1 className='font-bold p-2  border-b-2 border-secondary/30'>Cakra Tercerdas</h1>
       <table className='flex flex-col'>
         <tbody>
           {users.slice(0, visibleCount).map((user, index) => (
@@ -50,12 +51,12 @@ function Leaderboard() {
       </table>
       {visibleCount < users.length && ( // Tampilkan tombol hanya jika ada lebih banyak pengguna
         <div className="flex justify-center items-center p-5">
-          <button
-            onClick={loadMore} // Panggil fungsi loadMore saat tombol diklik
-            className="btn btn-xs bg-transparent border-secondary hover:btn-outline rounded-2xl"
-          >
-            Lihat lebih
-          </button>
+            <PrimaryButton
+              onClick={loadMore}
+              label="Lihat lebih banyak"
+              className="btn btn-xs bg-transparent text-secondary"
+              >
+            </PrimaryButton>
         </div>
       )}
     </div>

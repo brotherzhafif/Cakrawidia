@@ -1,18 +1,29 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import Hero from "./Hero";
+import dayjs from "dayjs";
+import "dayjs/locale/id";  
+import relativeTime from "dayjs/plugin/relativeTime";
+dayjs.extend(relativeTime);
 
-const AskingListCard = () => {
+
+
+
+import PrimaryButton from "./Buttons/PrimaryButton";
+
+const QuestionsListCard = () => {
     const [answers, setAnswers] = useState([]);
     const [topics, setTopics] = useState([]);
     const [questions, setQuestions] = useState([]);
     const [loading, setLoading] = useState(true);
-    const [visibleCount, setVisibleCount] = useState(8); // Tambahkan state untuk jumlah item yang ditampilkan
+    const [visibleCount, setVisibleCount] = useState(15); // Tambahkan state untuk jumlah item yang ditampilkan
 
     useEffect(() => {
+        dayjs.locale('id'); 
         const fetchAnswers = axios.get("api/answers");
         const fetchTopics = axios.get("api/topics");
         const fetchQuestions = axios.get("api/questions");
+
 
         Promise.all([fetchAnswers, fetchTopics, fetchQuestions])
             .then(([answersRes, topicsRes, questionsRes]) => {
@@ -40,22 +51,23 @@ const AskingListCard = () => {
     }, []);
 
     const loadMore = () => {
-        setVisibleCount((prevCount) => prevCount + 5); // Tambah 5 item setiap klik
+        setVisibleCount((prevCount) => prevCount + 10); // Tambah 10 item setiap klik
     };
+
+
 
     if (loading) {
         return (
-            <div className="bg-red-500 col-span-6 h-screen flex justify-center items-center ">
+            <div className="animate-pulse bg-slate-500 col-span-6 h-screen flex justify-center items-center ">
                 <p>Loading...</p>
             </div>
         );
     }
-
     return (
-        <div className="bg-sky-400 col-span-6 flex flex-col justify-center border items-center p-1">
+        <div className=" rounded-xl col-span-6 flex flex-col justify-center border border-secondary items-center ">
             <Hero />
             {answers.slice(0, visibleCount).map((answer) => (
-                <div key={answer.id} className="w-full flex flex-col justify-between border min-h-[200px] border-white/50 gap-5 p-5">
+                <div key={answer.id} className="w-full flex flex-col justify-between border min-h-[200px] border-b-secondary/30 gap-5 p-5">
                     <div className="flex gap-2 items-center">
                         <div className="avatar">
                             <div className="w-10 rounded-full">
@@ -63,28 +75,36 @@ const AskingListCard = () => {
                             </div>
                         </div>
                         <a href="#" className="font-bold text-sm hover:underline">{answer.topic_name}</a>
-                        <p className="font-bold text-sm">{new Date(answer.question_created_at).toLocaleString()}</p>
+                        <p className="font-bold text-sm">
+                            {dayjs(answer.question_created_at).fromNow()}
+                        </p>
                     </div>
                     <div className="flex flex-col gap-3">
                         <a href="#" className="font-normal text-xl hover:underline">{answer.question.title}  </a>
                     </div>
                     <div className="flex w-full justify-end">
-                        <button className="btn btn-sm btn-outline rounded-3xl">Jawab</button>
+                        <PrimaryButton
+                            // onClick={}
+                            label="Jawab"
+                            className="btn btn-xs bg-transparent text-secondary"
+                        >
+                        </PrimaryButton>
                     </div>
                 </div>
             ))}
+
             {visibleCount < answers.length && ( // Tampilkan tombol hanya jika masih ada item yang belum ditampilkan
                 <div className="flex justify-center items-center p-5">
-                    <button
+                    <PrimaryButton
                         onClick={loadMore}
-                        className="btn btn-xs bg-transparent border-secondary hover:btn-outline rounded-2xl"
+                        label="Lihat semua"
+                        className="btn btn-xs bg-transparent text-secondary"
                     >
-                        Lihat semua
-                    </button>
+                    </PrimaryButton>
                 </div>
             )}
         </div>
     );
 };
 
-export default AskingListCard;
+export default QuestionsListCard;
