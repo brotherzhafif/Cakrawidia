@@ -36,15 +36,15 @@ function Leaderboard() {
   }
 
   return (
-    <div className='col-span-12 md:col-span-3 p-2 border-secondary/30  border rounded-xl'>
+    <div className='col-span-12 md:col-span-3 p-2  border-secondary  border rounded-xl'>
       <h1 className='font-extrabold p-2  border-b-2 border-secondary/30'>Cakra Tercerdas</h1>
-      <table className='flex flex-col'>
+      <table className='flex flex-col mt-2'>
         <tbody>
           {users.slice(0, visibleCount).map((user, index) => (
             <tr className='flex font-medium items-center justify-between' key={user.id}>
-              <td className=''>{index + 1}</td>
-              <td className=''>{user.username}</td>
-              <td className=''>{user.points} poin</td>
+              <td className='btn-outline btn-circle btn-xs flex items-center justify-center   rounded-full'>{index + 1}</td>
+              <td>{user.username}</td>
+              <td>{user.points} <span className='bg-secondary text-primary badge badge-sm rounded-full'>poin</span></td>
             </tr>
           ))}
         </tbody>

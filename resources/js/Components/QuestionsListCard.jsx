@@ -5,6 +5,7 @@ import dayjs from "dayjs";
 import "dayjs/locale/id";  
 import relativeTime from "dayjs/plugin/relativeTime";
 import PrimaryButton from "./Buttons/PrimaryButton";
+import SortingDropdown from "./SortingDropdown";
 dayjs.extend(relativeTime);
 
 const QuestionsListCard = () => {
@@ -58,8 +59,9 @@ const QuestionsListCard = () => {
     return (
         <div className=" rounded-xl col-span-12 md:col-span-6 flex flex-col justify-center border border-secondary items-center ">
             <Hero />
+            <SortingDropdown />
             {answers.slice(0, visibleCount).map((answer) => (
-                <div key={answer.id} className="w-full flex flex-col justify-between border min-h-[200px] border-b-secondary/30 gap-5 p-5">
+                <div key={answer.id} className="w-full flex flex-col justify-between border-b-2 min-h-[200px] gap-4  p-5">
                     <div className="flex gap-2 items-center">
                         <div className="avatar">
                             <div className="w-10 rounded-full">
