@@ -11,7 +11,7 @@ export default function Login() {
                 title={"Gabung Cakrawidia"}
                 description={"Buat akun untuk mendapatkan jawaban dari pertanyaanmu lebih cepat"}
             > 
-                <form method="POST" action="/Register" className="flex flex-col sm:w-[60%] w-[90%] gap-5 shadow items-start rounded-xl  justify-between  p-5">
+                <form method="POST" action="/Register" className="flex flex-col sm:w-[40%] w-[90%] gap-5 shadow items-start rounded-xl  justify-between  p-5">
                     <Input
                         placeholder={"Username"}
                         type="name"

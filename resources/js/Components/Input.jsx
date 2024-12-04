@@ -8,7 +8,7 @@ const Input = ({ label, type = "text", placeholder, value, onChange, className='
                 <span className="label-text font-medium">{label}</span>
             </label>
             <input 
-            className={`input input-bordered w-full rounded-full ${className}`}
+            className={`input input-md input-bordered w-full rounded-full ${className}`}
                 type={type}
                 placeholder={placeholder}
                 value={value}

@@ -11,7 +11,7 @@ export default function Login() {
                 title={"Welcome Back"}
                 description={"Login to your account"}
             > 
-                <form method="POST" action="/login" className="flex flex-col sm:w-[60%] w-[90%] gap-5 shadow items-start rounded-xl  justify-between  p-5">
+                <form method="POST" action="/login" className="flex flex-col sm:w-[40%] w-[90%] gap-5 shadow items-start rounded-xl  justify-between  p-5">
                     <Input
                         placeholder={"Masukan Email"}
                         type="email"
