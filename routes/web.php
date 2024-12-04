@@ -13,9 +13,13 @@ Route::get('/login', function () {
 })->name('login');
 
 Route::get('/register', function () {
-    return inertia('Register');
+    return inertia('Register');  // Pages Register
 })->name('register');
 
 Route::get('/ProfileUser', function () {
     return Inertia::render('ProfileUser', []);
-})->name('ProfileUser');
+})->name('ProfileUser');  // Page Profile User
+
+Route::get('/ViewQuestion', function () {
+    return Inertia::render('ViewQuestion', []);
+})->name('ViewQuestion'); // Page View Question
