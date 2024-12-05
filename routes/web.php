@@ -14,12 +14,13 @@ Route::get('/login', function () {
 })->name('login');
 
 Route::get('/register', function () {
-    return inertia('Register');
+    return inertia('Register');  // Pages Register
 })->name('register');
 
 
 Route::get('/ProfileUser', function () {
     return Inertia::render('ProfileUser', []);
+<<<<<<< HEAD
 })->name('ProfileUser');
 
 
@@ -31,3 +32,10 @@ Route::get('/answers/{id}', function ($id) {
         'answer' => $answer,
     ]);
 })->name('answers.view');
+=======
+})->name('ProfileUser');  // Page Profile User
+
+Route::get('/ViewQuestion', function () {
+    return Inertia::render('ViewQuestion', []);
+})->name('ViewQuestion'); // Page View Question
+>>>>>>> cb7db1cd2d8dc68188e07c13e4750e46f39252ad
