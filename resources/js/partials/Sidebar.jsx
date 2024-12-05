@@ -37,7 +37,7 @@ function Sidebar() {
         <h1 className='bg-secondary text-primary p-2 font-bold rounded-md '>Semua topik</h1>
         {topics.map(topic => (
           <li key={topic.id}>
-            {/* <img src="" alt="" /> */}
+            <img src="" alt="" />
             <a className='font-bold' href="">{topic.name} </a>
           </li>
         ))}

@@ -1,5 +1,4 @@
 import ModalQuestions from "./ModalQuestions"
-import SortingDropdown from "./SortingDropdown"
 export default function Hero() {
     return (
         <>

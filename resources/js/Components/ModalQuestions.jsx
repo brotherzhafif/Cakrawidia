@@ -22,7 +22,8 @@ export default function ModalQuestions() {
                                 src="https://img.icons8.com/?size=100&id=71200&format=png&color=FFFFFF"
                                 htmlFor="my_modal_6"
                                 className="btn btn-sm btn-circle" 
-                            />
+                            >
+                            </LabelButton>
                         </div>
                         <Textarea 
                             placeholder="Tulisl perntanyaanmu (simple & jelas lebih cepat terjawab)"
