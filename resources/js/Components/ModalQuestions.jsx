@@ -7,7 +7,6 @@ import Textarea from "./TextArea"
 export default function ModalQuestions() {
     return (
         <>
-            {/* The button to open modal */}
             <LabelButton 
                 label="MULAI BERTANYA!" 
                 htmlFor="my_modal_6"  
