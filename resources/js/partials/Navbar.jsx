@@ -2,6 +2,7 @@ import { Link } from '@inertiajs/react';
 import Logo from './Logo';
 import LabelButton from '@/Components/Buttons/LabelBtn';
 import Sidebar from './Sidebar';
+
 export default function Navbar() {
     return (
         <div className="sticky shadow-md top-0 z-20 navbar bg-base-100">

@@ -19,7 +19,7 @@ export default function ModalQuestions() {
                         <div className="flex  justify-between items-center">
                             <h3 className="text-lg font-bold">Ajukan pertanyaan mu !</h3>
                             <LabelButton 
-                                src="https://img.icons8.com/?size=100&id=71200&format=png&color=FFFFFF"
+                                src={"https://img.icons8.com/?size=100&id=2i5n7zNvArOt&format=png&color=FFFFFF"}
                                 htmlFor="my_modal_6"
                                 className="btn btn-sm btn-circle" 
                             >
@@ -27,7 +27,6 @@ export default function ModalQuestions() {
                         </div>
                         <Textarea 
                             placeholder="Tulisl perntanyaanmu (simple & jelas lebih cepat terjawab)"
-                        
                         />
                         <TopicsDropdown/>
                         <PrimaryButton 

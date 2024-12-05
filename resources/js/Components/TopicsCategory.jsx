@@ -23,7 +23,11 @@ function TopicsCategory() {
   }, []);
 
   // Menampilkan loading, error, atau data
-  if (loadingTopics) return <p className='animate-pulse bg-slate-600  col-span-3 min-h-screen'>Loading...</p>;
+  if (loadingTopics) 
+    return  <div className='animate-pulse col-span-12 hidden md:flex md:col-span-3  rounded-xl justify-center  items-center bg-gray-200  min-h-screen'>
+              <span className="loading loading-infinity loading-lg"></span>
+            </div>;
+    
   if (error) return <p>Error: {error}</p>;
 
   return (

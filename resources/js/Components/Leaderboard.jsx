@@ -28,7 +28,9 @@ function Leaderboard() {
   };
 
   if (loading) {
-    return <div className='flex animate-pulse bg-slate-900 col-span-3 min-h-screen'>Loading...</div>;
+    return <div className='flex animate-pulse bg-gray-200 rounded-xl items-center justify-center col-span-12 md:col-span-3 min-h-screen'>
+              <span className="loading loading-infinity loading-lg"></span>
+          </div>;
   }
 
   if (error) {
@@ -41,11 +43,21 @@ function Leaderboard() {
       <table className='flex flex-col mt-2'>
         <tbody>
           {users.slice(0, visibleCount).map((user, index) => (
-            <tr className='flex font-medium items-center justify-between' key={user.id}>
-              <td className='btn-outline btn-circle btn-xs flex items-center justify-center   rounded-full'>{index + 1}</td>
-              <td>{user.username}</td>
-              <td>{user.points} <span className='bg-secondary text-primary badge badge-sm rounded-full'>poin</span></td>
-            </tr>
+            <tr className='flex p-1 font-medium items-center justify-start ' key={user.id}>
+              <td className="flex items-center gap-2 justify-start">
+                <span
+                  className={`btn-md btn btn-circle hover:btn-lg transition-all ease-in duration-200  flex items-center justify-center rounded-full ${
+                    index >= 0 && index <= 2 ? "bg-yellow-400 text-primary hover:text-2xl hover:animate-pulse hover:bg-yellow-300 " : ""
+                  }`}
+                >
+                  {index + 1}
+                </span>
+                <p className='flex  flex-col items-start justify-center '>
+                  <span>{user.username}</span>
+                  <span><span className=''>{user.points}</span> point</span>
+                </p>
+              </td>
+              </tr>
           ))}
         </tbody>
       </table>
