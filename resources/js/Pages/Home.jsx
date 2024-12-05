@@ -1,7 +1,7 @@
 import { Head } from "@inertiajs/react";
 import LayoutApp from "@/Layouts/LayoutApp.jsx";
 import Navbar from "@/partials/Navbar.jsx";
-import GridHome from "@/Layouts/GridHome.jsx";
+import Layout3Grid from "@/Layouts/Layout3Grid.jsx";
 import Leaderboard from "@/Components/Leaderboard.jsx";
 import QuestionsListCard from "../Components/QuestionsListCard.jsx";
 import TopicsCategory from "@/Components/TopicsCategory.jsx";
@@ -13,11 +13,11 @@ export default function Home() {
             <Head title="Home" />
             <LayoutApp>
                 <Navbar />
-                <GridHome>
+                <Layout3Grid>
                     <TopicsCategory/>
                     <QuestionsListCard />
                     <Leaderboard />
-                </GridHome>
+                </Layout3Grid>
                 <Footer />
             </LayoutApp>
         </>

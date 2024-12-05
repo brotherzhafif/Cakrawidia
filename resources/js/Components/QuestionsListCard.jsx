@@ -10,8 +10,7 @@ dayjs.extend(relativeTime);
 
 const QuestionsListCard = () => {
     const [answers, setAnswers] = useState([]);
-    const [topics, setTopics] = useState([]);
-    const [questions, setQuestions] = useState([]);
+    const [topicsName] = useState([]);
     const [loading, setLoading] = useState(true);
     const [visibleCount, setVisibleCount] = useState(15); // Tambahkan state untuk jumlah item yang ditampilkan
 
@@ -19,28 +18,23 @@ const QuestionsListCard = () => {
         dayjs.locale('id'); 
         const fetchAnswers = axios.get("api/answers");
         const fetchTopics = axios.get("api/topics");
-        const fetchQuestions = axios.get("api/questions");
 
-        Promise.all([fetchAnswers, fetchTopics, fetchQuestions])
-            .then(([answersRes, topicsRes, questionsRes]) => {
+        Promise.all([fetchAnswers, fetchTopics])
+            .then(([answersRes, topicsRes]) => {
                 const answersData = answersRes.data;
                 const topicsData = topicsRes.data;
-                const questionsData = questionsRes.data;
 
                 const enrichedAnswers = answersData.map((answer) => {
                     const topic = topicsData.find((t) => t.id === answer.question.topic_id);
-                    const question = questionsData.find((q) => q.id === answer.question.id);
 
                     return {
                         ...answer,
                         topic_name: topic ? topic.name : "Unknown",
-                        question_created_at: question ? question.created_at : "Unknown",
                     };
                 });
 
                 setAnswers(enrichedAnswers);
-                setTopics(topicsData);
-                setQuestions(questionsData);
+                topicsName(topicsData);
             })
             .catch((error) => console.error("Error fetching data:", error))
             .finally(() => setLoading(false));
@@ -70,7 +64,7 @@ const QuestionsListCard = () => {
                         </div>
                         <a href="#" className="font-bold text-sm hover:underline">{answer.topic_name}</a>
                         <p className="font-bold text-sm">
-                            {dayjs(answer.question_created_at).fromNow()}
+                            {dayjs(answer.question.created_at).fromNow()}
                         </p>
                     </div>
                     <div className="flex flex-col gap-3">
@@ -78,7 +72,6 @@ const QuestionsListCard = () => {
                     </div>
                     <div className="flex w-full justify-end">
                         <PrimaryButton
-                            // onClick={}
                             label="Jawab"
                             className="btn btn-xs bg-transparent text-secondary"
                         >
@@ -102,3 +95,5 @@ const QuestionsListCard = () => {
 };
 
 export default QuestionsListCard;
+
+
