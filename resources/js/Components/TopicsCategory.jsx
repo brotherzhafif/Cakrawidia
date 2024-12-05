@@ -8,5 +8,4 @@ function TopicsCategory() {
     </div>
   );
 }
-
 export default TopicsCategory;

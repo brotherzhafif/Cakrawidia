@@ -1,6 +1,6 @@
 import { Head } from "@inertiajs/react";
 import LayoutAuth from "@/Layouts/Auth/LayoutAuth";
-import Input from "@/Components/Input";
+import Input from "@/Components/InputPost";
 import PrimaryButton from "@/Components/Buttons/PrimaryButton";
 
 export default function Login() {
