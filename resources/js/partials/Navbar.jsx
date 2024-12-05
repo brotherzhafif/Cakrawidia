@@ -26,10 +26,12 @@ export default function Navbar({ onSearch }) {
                     className='flex md:hidden btn btn-md btn-circle p-1'
                 />
                 <div className="drawer-side">
-                    <label htmlFor="my-drawer-4" aria-label="close sidebar" className="drawer-overlay"></label>
-                    <ul className="menu shadow-md bg-white rounded-xl text-base-content min-h-full w-80 transition-all duration-1000 ease-in-out">
-                        <Sidebar />
-                    </ul>
+                    <LabelButton
+                        htmlFor="my-drawer-4"
+                        ariaLabel={"close sidebar"}
+                        className='drawer-overlay rounded-none'>
+                    </LabelButton>
+                    <Sidebar />
                 </div>
                 <SearchInput
                     type="text"

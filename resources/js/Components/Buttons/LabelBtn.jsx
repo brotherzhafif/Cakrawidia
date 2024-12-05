@@ -1,9 +1,11 @@
 import React from 'react';
 
-const LabelButton = ({ src, label, htmlFor, className = '', onClick, alt = 'Button Modal' }) => {
+const LabelButton = ({ src, label, htmlFor,  ariaLabel, id='', className = '', onClick, alt = 'Button Modal' }) => {
   return (
     <label
       htmlFor={htmlFor}
+      aria-label={ariaLabel}
+      id={id}
       className={`flex items-center justify-center gap-2 btn-outline bg-secondary text-primary rounded-full font-bold ${className}`}
       onClick={onClick}
     >

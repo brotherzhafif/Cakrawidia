@@ -1,6 +1,4 @@
 
-
-
 export default function SortingDropdown() {
     return(
         <div className="flex w-full p-5 justify-start border-t-2 ">

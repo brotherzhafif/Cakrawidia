@@ -58,12 +58,12 @@ const QuestionsListCard = ({ searchQuery }) => { // Terima searchQuery dari prop
     }
 
     return (
-        <div className="rounded-xl col-span-12 md:col-span-6 flex flex-col justify-center border border-secondary items-center p-4">
+        <div className="rounded-xl col-span-12 md:col-span-6 flex flex-col justify-center border border-secondary items-center ">
             <Hero />
             {filteredAnswers.length > 0 ? (
                 filteredAnswers.slice(0, visibleCount).map((answer) => (
-                    <div key={answer.id} className="w-full flex flex-col justify-between border-b-2 min-h-[200px] gap-4 p-5">
-                        <div className="flex gap-2 items-center">
+                    <div key={answer.id} className="w-full flex flex-col justify-between border-t-2 border-b-2 min-h-[200px] gap-4 p-5">
+                        <div className="flex gap-1 justify-start items-center">
                             <div className="avatar">
                                 <div className="w-10 rounded-full">
                                     <img
@@ -72,9 +72,10 @@ const QuestionsListCard = ({ searchQuery }) => { // Terima searchQuery dari prop
                                     />
                                 </div>
                             </div>
-                            <a href="#" className="font-bold text-sm hover:underline">
+                            <a href="#" className="font-bold text-xs sm:text-sm hover:underline">
                                 {answer.topic_name}
                             </a>
+                            |
                             <p className="font-bold text-sm">
                                 {dayjs(answer.question.created_at).fromNow()}
                             </p>
