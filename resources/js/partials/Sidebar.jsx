@@ -29,7 +29,10 @@ function Sidebar() {
   return (
     
     <div className='flex flex-col gap-2 '>
-      <h1 className='font-bold border-b-2 p-2 border-secondary/30'>Topik</h1>
+      <div className="flex justify-between p-2 w-full items-center font-bold border-b-2 border-secondary/30">
+          <h1 className='font-bold text-xl'>Topik</h1>
+        <label htmlFor="my-drawer-4" className='btn btn-sm btn-circle btn-primary'>X</label>
+      </div>
       <ul className=' flex flex-col gap-2 '>
         <h1 className='bg-secondary text-primary p-2 font-bold rounded-md '>Semua topik</h1>
         {topics.map(topic => (

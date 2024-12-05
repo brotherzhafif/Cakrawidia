@@ -13,7 +13,6 @@ export default function Navbar() {
                 src={"https://img.icons8.com/?size=100&id=83195&format=png&color=FFFFFF"}
                 className='flex md:hidden btn btn-md btn-circle p-1'                
                 >
-
                 </LabelButton>
                 <div className="drawer-side">
                     <label htmlFor="my-drawer-4" aria-label="close sidebar" className="drawer-overlay"></label>

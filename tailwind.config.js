@@ -12,6 +12,9 @@ module.exports = {
 
     theme: {
         extend: {
+            screens: {
+                'xs': '320px', // Tambahkan breakpoint custom untuk 320px
+            },
             colors: {
                 primary: '#FBFBFB', 
                 secondary: '#181C14',  
