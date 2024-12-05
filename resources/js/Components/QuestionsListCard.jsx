@@ -8,12 +8,11 @@ import Hero from "./Hero";
 
 dayjs.extend(relativeTime);
 
-const QuestionsListCard = () => {
+const QuestionsListCard = ({ searchQuery }) => { // Terima searchQuery dari prop
     const [answers, setAnswers] = useState([]);
-    const [setTopics] = useState([]);
+    const [setTopics] = useState([]); // Perbaiki deklarasi useState
     const [loading, setLoading] = useState(true);
     const [visibleCount, setVisibleCount] = useState(15);
-    const [searchQuery, setSearchQuery] = useState(""); // State untuk pencarian
 
     useEffect(() => {
         dayjs.locale("id");
@@ -34,7 +33,7 @@ const QuestionsListCard = () => {
                 });
 
                 setAnswers(enrichedAnswers);
-                setTopics(topicsData);
+                setTopics(topicsData); // Panggil setTopics dengan benar
             })
             .catch((error) => console.error("Error fetching data:", error))
             .finally(() => setLoading(false));
@@ -61,13 +60,6 @@ const QuestionsListCard = () => {
     return (
         <div className="rounded-xl col-span-12 md:col-span-6 flex flex-col justify-center border border-secondary items-center p-4">
             <Hero />
-            <input
-                type="text"
-                placeholder="Search"
-                className="input rounded-full input-bordered input-sm w-[99%] mb-5"
-                value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
-            />
             {filteredAnswers.length > 0 ? (
                 filteredAnswers.slice(0, visibleCount).map((answer) => (
                     <div key={answer.id} className="w-full flex flex-col justify-between border-b-2 min-h-[200px] gap-4 p-5">
@@ -106,7 +98,6 @@ const QuestionsListCard = () => {
                         Tidak ada hasil dari "<span className="font-bold">{searchQuery}</span>"
                     </p>
                 </div>
-
             )}
             {visibleCount < filteredAnswers.length && (
                 <div className="flex justify-center items-center p-5">
