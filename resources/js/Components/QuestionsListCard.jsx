@@ -45,10 +45,10 @@ const QuestionsListCard = ({ searchQuery }) => {
         setVisibleCount((prevCount) => prevCount + 10);
     };
 
-    const filteredQuestions = questions.filter((answer) =>
-        answer.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        answer.topic_name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        answer.content.toLowerCase().includes(searchQuery.toLowerCase())
+    const filteredQuestions = questions.filter((questions) =>
+        questions.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        questions.topic_name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        questions.content.toLowerCase().includes(searchQuery.toLowerCase())
     );
 
     if (loading) {
