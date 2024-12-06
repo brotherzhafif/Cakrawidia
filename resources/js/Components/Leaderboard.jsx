@@ -46,15 +46,15 @@ function Leaderboard() {
             <tr className='flex p-1 font-medium items-center justify-start ' key={user.id}>
               <td className="flex items-center gap-2 justify-start">
                 <span
-                  className={`btn-md btn btn-circle hover:btn-lg transition-all ease-in duration-200  flex items-center justify-center rounded-full ${
-                    index >= 0 && index <= 2 ? "bg-yellow-400 text-primary hover:text-2xl hover:animate-pulse hover:bg-yellow-300 " : ""
+                  className={`btn-md btn btn-circle hover:btn-lg transition-all ease-in duration-100  flex items-center justify-center rounded-full ${
+                    index >= 0 && index <= 2 ? "bg-yellow-400 text-primary cursor-default hover:text-2xl hover:animate-pulse hover:bg-yellow-300 " : ""
                   }`}
                 >
                   {index + 1}
                 </span>
                 <p className='flex  flex-col items-start justify-center '>
                   <span>{user.username}</span>
-                  <span><span className=''>{user.points}</span> point</span>
+                  <span><span className='text-xs text-secondary/70'>{user.points}</span></span>
                 </p>
               </td>
               </tr>

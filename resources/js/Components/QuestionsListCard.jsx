@@ -8,32 +8,34 @@ import Hero from "./Hero";
 
 dayjs.extend(relativeTime);
 
-const QuestionsListCard = ({ searchQuery }) => { // Terima searchQuery dari prop
+const QuestionsListCard = ({ searchQuery }) => {
     const [answers, setAnswers] = useState([]);
-    const [setTopics] = useState([]); // Perbaiki deklarasi useState
+    const [setTopics] = useState([]); // Use state for topics
     const [loading, setLoading] = useState(true);
     const [visibleCount, setVisibleCount] = useState(15);
 
     useEffect(() => {
         dayjs.locale("id");
-        const fetchAnswers = axios.get("api/answers");
-        const fetchTopics = axios.get("api/topics");
+        const fetchAnswers = axios.get("api/questions"); // Updated API endpoint
+        const fetchTopics = axios.get("api/topics"); // Assuming you still need topics data
 
         Promise.all([fetchAnswers, fetchTopics])
             .then(([answersRes, topicsRes]) => {
-                const answersData = answersRes.data;
-                const topicsData = topicsRes.data;
+                const answersData = answersRes.data; // Get answers from API
+                const topicsData = topicsRes.data; // Get topics from API
 
+                // Enrich answers with topic names and user details
                 const enrichedAnswers = answersData.map((answer) => {
-                    const topic = topicsData.find((t) => t.id === answer.question.topic_id);
+                    const topic = topicsData.find((t) => t.id === answer.topic_id);
                     return {
                         ...answer,
                         topic_name: topic ? topic.name : "Unknown",
+                        user_name: answer.user ? answer.user.username : "Unknown",
                     };
                 });
 
                 setAnswers(enrichedAnswers);
-                setTopics(topicsData); // Panggil setTopics dengan benar
+                setTopics(topicsData); // Store topics data in state (though it's not used directly)
             })
             .catch((error) => console.error("Error fetching data:", error))
             .finally(() => setLoading(false));
@@ -44,9 +46,9 @@ const QuestionsListCard = ({ searchQuery }) => { // Terima searchQuery dari prop
     };
 
     const filteredAnswers = answers.filter((answer) =>
-        answer.question.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        answer.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
         answer.topic_name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        answer.question.content.toLowerCase().includes(searchQuery.toLowerCase())
+        answer.content.toLowerCase().includes(searchQuery.toLowerCase())
     );
 
     if (loading) {
@@ -77,12 +79,12 @@ const QuestionsListCard = ({ searchQuery }) => { // Terima searchQuery dari prop
                             </a>
                             |
                             <p className="font-bold text-sm">
-                                {dayjs(answer.question.created_at).fromNow()}
+                                {dayjs(answer.created_at).fromNow()}
                             </p>
                         </div>
                         <div className="flex flex-col gap-3">
                             <a href="#" className="font-normal text-xl hover:underline">
-                                {answer.question.title}
+                                {answer.title}
                             </a>
                         </div>
                         <div className="flex w-full justify-end">
