@@ -23,20 +23,6 @@ class AnswerController extends Controller
         return response()->json($answer);
     }
 
-
-    // public function store(Request $request)
-    // {
-    //     $validated = $request->validate([
-    //         'question_id' => 'required|exists:questions,id',
-    //         'user_id' => 'required|exists:users,id',
-    //         'content' => 'required',
-            
-    //     ]);
-
-    //     $answer = Answer::create($validated);
-    //     return response()->json($answer, 201);
-    // }
-
     // Create a new answer
     public function store(Request $request)
     {
@@ -50,8 +36,6 @@ class AnswerController extends Controller
         $answer = Answer::create($validated);
         return response()->json($answer, 201);
     }
-
-
 
     // Update an answer
     public function update(Request $request, $id)
