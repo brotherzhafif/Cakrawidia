@@ -19,9 +19,3 @@ Route::middleware('api')->group(function () {
     Route::post('likes', [LikeController::class, 'store']);
     Route::delete('likes/{id}', [LikeController::class, 'destroy']);
 });
-
-Route::get('/user', function (Request $request) {
-    return $request->user();
-})->middleware('auth:sanctum');
-
-
