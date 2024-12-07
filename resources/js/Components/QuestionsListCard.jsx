@@ -6,6 +6,8 @@ import "dayjs/locale/id";
 import relativeTime from "dayjs/plugin/relativeTime";
 import PrimaryButton from "./Buttons/PrimaryButton";
 import Hero from "./Hero";
+import { Link } from "@inertiajs/react";
+
 
 dayjs.extend(relativeTime);
 
@@ -118,10 +120,16 @@ const QuestionsListCard = ({ searchQuery }) => {
               </p>
             </div>
             <div className="flex flex-col gap-3">
-              <a href="#" className="font-normal text-xl hover:underline">
+              <Link
+                href={route("ViewQuestion", { id: question.id })} // Arahkan ke halaman detail
+                className="font-normal text-xl hover:underline">
                 {question.title}
-              </a>
+              </Link>
+              {/* <a href="#" className="font-normal text-xl hover:underline">
+                {question.title}
+              </a> */}
             </div>
+            
             <div className="flex w-full justify-end">
               <PrimaryButton
                 label="Jawab"

@@ -23,17 +23,8 @@ Route::get('/ProfileUser', function () {
 })->name('ProfileUser');
 
 
-Route::get('/ViewQuestion', function () {
-    return Inertia::render('ViewQuestion', []);
-})->name('ViewQuestion'); // Page View Question
-
-
-
-Route::get('/ViewQuestion', function (Request $request) {
-    $answerId = $request->query('id');
-    $answer = Answer::with('question')->findOrFail($answerId);
-
+Route::get('/ViewQuestion/{id}', function ($id) {
     return Inertia::render('ViewQuestion', [
-        'answer' => $answer,
+        'id' => $id, // Kirim ID ke halaman Inertia
     ]);
 })->name('ViewQuestion');
