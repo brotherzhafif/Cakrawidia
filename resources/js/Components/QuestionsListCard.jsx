@@ -125,16 +125,17 @@ const QuestionsListCard = ({ searchQuery }) => {
                 className="font-normal text-xl hover:underline">
                 {question.title}
               </Link>
-              {/* <a href="#" className="font-normal text-xl hover:underline">
-                {question.title}
-              </a> */}
             </div>
             
             <div className="flex w-full justify-end">
-              <PrimaryButton
+              <Link
+              href={route("ViewQuestion", { id: question.id })}
+              >
+                <PrimaryButton
                 label="Jawab"
                 className="btn btn-xs bg-transparent text-secondary"
               />
+              </Link>
             </div>
           </div>
         ))
