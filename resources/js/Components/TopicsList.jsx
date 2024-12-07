@@ -1,7 +1,9 @@
+
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import PrimaryButton from './Buttons/PrimaryButton';
 
-function TopicList({ className = '' }) {
+function TopicList({ className = '', onTopicSelect }) {
   const [topics, setTopics] = useState([]);  // Untuk menyimpan data topik
   const [loadingTopics, setLoading] = useState(true);  // Menandakan apakah data sedang di-load
   const [error, setError] = useState(null);  // Menampilkan error jika ada
@@ -36,9 +38,12 @@ function TopicList({ className = '' }) {
       <h1 className='bg-secondary text-primary p-2 font-bold rounded-md'>Semua topik</h1>
       {topics.map((topic) => (
         <li className='p-2 rounded-md hover:bg-secondary/10' key={topic.id}>
-          <a className='font-bold' href="">
-            {topic.name}
-          </a>
+          <PrimaryButton
+            onClick={() => onTopicSelect(topic.id)}  // Panggil onTopicSelect dengan ID topik
+            className={'bg-transparent hover:bg-transparent text-secondary hover:text-secondary '}
+            label={topic.name}
+          >
+          </PrimaryButton>
         </li>
       ))}
     </ul>

@@ -12,7 +12,7 @@ export default function Navbar({ onSearch }) {
     const handleSearchChange = (e) => {
         const query = e.target.value;
         setSearchQuery(query);
-        onSearch(query); // Panggil fungsi dari props untuk mengirim data ke parent
+        onSearch(query);
     };
 
     return (
