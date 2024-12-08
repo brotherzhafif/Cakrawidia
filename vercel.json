@@ -3,8 +3,8 @@
     "framework": null,
     "builds": [
         {
-            "src": "public/index.php",
-            "use": "@vercel/php",
+            "src": "Dockerfile",
+            "use": "@vercel/docker",
             "config": {
                 "installCommand": "apt-get update && apt-get install -y libssl-dev"
             }
