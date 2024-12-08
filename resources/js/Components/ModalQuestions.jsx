@@ -24,9 +24,9 @@ export default function ModalQuestions() {
                             >
                             </LabelButton>
                         </div>
-                        <Textarea 
-                            placeholder="Tulisl perntanyaanmu (simple & jelas lebih cepat terjawab)"
-                        />
+                            <Textarea 
+                                placeholder="Tulisl perntanyaanmu (simple & jelas lebih cepat terjawab)"
+                            />
                         <TopicsDropdown/>
                         <PrimaryButton 
                             label="Ajukan"
@@ -34,9 +34,7 @@ export default function ModalQuestions() {
                             className="btn btn-md"
                         />
                     </div>
-                    </div>
-
-            {/* Put this part before </body> tag */}
+                </div>
         </>
     )
     
