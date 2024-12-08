@@ -1,6 +1,10 @@
 {
     "private": true,
     "type": "module",
+    "name": "example-app",
+    "engines": {
+        "node": "22.x"
+    },
     "scripts": {
         "build": "vite build",
         "dev": "vite"
