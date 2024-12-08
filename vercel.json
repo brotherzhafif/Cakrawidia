@@ -12,6 +12,15 @@
             "dest": "/api/index.php"
         }
     ],
+    "builds": [
+        {
+            "src": "public/index.php",
+            "use": "@vercel/php",
+            "config": {
+                "installCommand": "apt-get update && apt-get install -y libssl-dev"
+            }
+        }
+    ],
     "env": {
         "APP_ENV": "production",
         "APP_DEBUG": "true",
