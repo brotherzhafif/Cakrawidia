@@ -1,13 +1,11 @@
 {
     "private": true,
     "type": "module",
-    "name": "example-app",
-    "engines": {
-        "node": "22.x"
-    },
     "scripts": {
-        "build": "vite build",
-        "dev": "vite"
+        "dev": "concurrently \"npm run dev-react\" \"npm run dev-laravel\"",
+        "dev-react": "vite",
+        "dev-laravel": "php artisan serve",
+        "build": "vite build"
     },
     "devDependencies": {
         "@headlessui/react": "^2.0.0",
@@ -16,7 +14,7 @@
         "@vitejs/plugin-react": "^4.2.0",
         "autoprefixer": "^10.4.20",
         "axios": "^1.7.4",
-        "concurrently": "^9.0.1",
+        "concurrently": "^9.1.0",
         "daisyui": "^4.12.14",
         "laravel-vite-plugin": "^1.0",
         "postcss": "^8.4.49",
