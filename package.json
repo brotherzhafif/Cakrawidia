@@ -6,7 +6,8 @@
         "dev": "vite",
         "serve": "php artisan serve",
         "start": "serve -s dist",
-        "build": "vite build"
+        "build": "vite build",
+        "postinstall": "npm run prod"
     },
     "devDependencies": {
         "@headlessui/react": "^2.0.0",
