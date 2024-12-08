@@ -17,7 +17,7 @@ class TrustProxies extends Middleware
     /**
      * The headers that should be used to detect proxies.
      *
-     * @var int
+     * @var int|null
      */
-    protected $headers = SymfonyRequest::HEADER_X_FORWARDED_ALL;
+    protected $headers = 0x1F;
 }
