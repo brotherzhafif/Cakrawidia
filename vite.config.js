@@ -11,7 +11,8 @@ export default defineConfig({
     react(),
   ],
   build: {
-    outDir: 'public/build', // Output hasil build ke public/build
+    outDir: 'public/build',
     emptyOutDir: true,
   },
+  base: process.env.APP_URL || '/', // Pastikan URL asset sesuai dengan HTTPS
 });
