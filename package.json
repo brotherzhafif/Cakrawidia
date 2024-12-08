@@ -3,13 +3,10 @@
     "type": "module",
     "scripts": {
         "web": "concurrently \"npm run dev\" \"npm run serve\"",
-        "web": "concurrently \"npm run dev\" \"npm run serve\"",
         "dev": "vite",
         "serve": "php artisan serve",
         "start": "serve -s dist",
         "build": "vite build"
-        // "prod": "webpack --mode production",
-        // "postinstall": "npm run prod"
     },
     "devDependencies": {
         "@headlessui/react": "^2.0.0",
