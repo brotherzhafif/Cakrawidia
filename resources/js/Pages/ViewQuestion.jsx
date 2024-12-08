@@ -47,9 +47,9 @@ export default function ViewQuestion() {
         <LayoutApp>
             <Navbar />
                 <Layout3Grid>
-                <div className="b col-span-6  md:col-span-8 flex flex-col gap-3 w-full min-h-screen">
+                <div className=" col-span-12 md:col-span-8 flex flex-col gap-3 w-full p-1 min-h-screen">
                     {/* Informasi pengguna dan topik */}
-                    <div className="border-2  rounded-md  flex flex-col gap-9 p-4 items-start ">
+                    <div className="border rounded-md border-secondary flex flex-col gap-4 p-4 items-start ">
                         <div className="flex w-full gap-1 items-center text-sm ">
                             <div className="avatar">
                                 <div className="w-10 rounded-full">
@@ -64,7 +64,7 @@ export default function ViewQuestion() {
                             |
                             <p className="font-semibold">{dayjs(question.created_at).fromNow()}</p>
                         </div>
-                        <h1 className=" w-full font-semibold text-xl">{question.title} </h1>
+                        <h1 className=" w-full ">{question.title} </h1>
 
                         <div className=" w-full ">
                             <LabelButton
@@ -78,7 +78,7 @@ export default function ViewQuestion() {
 
 
                     {/* Jawaban */}
-                    <div className="flex flex-col  w-full   border-2   rounded-md">
+                    <div className="flex flex-col  w-full border border-secondary   rounded-md">
                         <h2 className="text-3xl p-4 font-bold">Jawaban</h2>
                         {question.answers.length > 0 ? (
                             question.answers.map((answer) => (
@@ -91,7 +91,7 @@ export default function ViewQuestion() {
                                                     alt="Avatar"/>
                                             </div>
                                         </div>
-                                    <p className="text-xl ">{answer.user?.username || "Anonim"}</p>
+                                    <p className="text-sm ">{answer.user?.username || "Anonim"}</p>
                                     </div>
                                     <p className="w-full ">{answer.content}</p>
 
@@ -108,8 +108,8 @@ export default function ViewQuestion() {
                     </div>
                 </div>
 
-                <div className="bg-primary border-2 flex-col p-3 rounded-md   hidden md:flex col-span-4">
-                    <div className="flex  border-secondary p-4 rounded-md  justify-start items-center  gap-3">
+                <div className=" border border-secondary flex-col  rounded-md   hidden md:flex col-span-4">
+                    <div className="flex  border-secondary p-4 rounded-md  justify-start items-center  gap-2">
                         <div className="avatar">
                                 <div className="w-28 rounded-full">
                                     <img
@@ -122,7 +122,7 @@ export default function ViewQuestion() {
                             <p className="badge badge-warning">2222 poin</p>
                         </div>
                     </div>
-                        <div className=" flex justify-center btn btn-outline cursor-pointer rounded-lg  items-center border-t border-secondary bg-secondary text-white p-4">
+                        <div className=" flex justify-center btn btn-outline cursor-pointer  items-center border-t border-secondary p-4">
                             Lihat pencapaian saya
                         </div>
                 </div>
