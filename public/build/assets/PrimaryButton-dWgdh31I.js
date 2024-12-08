@@ -1,0 +1,1 @@
+import{j as e}from"./app-C8VoWWBM.js";const i=({label:n,src:t,onClick:r,className:s="",type:o="button"})=>e.jsxs("button",{type:o,onClick:r,className:`flex items-center justify-center btn-outline  bg-secondary text-primary rounded-full font-bold ${s}`,children:[t&&e.jsx("img",{src:t,className:"p-1"}),n]});export{i as P};
