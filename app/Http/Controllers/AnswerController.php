@@ -10,7 +10,7 @@ class AnswerController extends Controller
     // Get all answers
     public function index()
     {
-        return response()->json(Answer::with(['question', 'user'])->get());
+        return response()->json(Answer::with(['user'])->get());
     }
 
     // Get a single answer
