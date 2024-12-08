@@ -37,3 +37,10 @@ Route::get('/ViewQuestion', function (Request $request) {
         'answer' => $answer,
     ]);
 })->name('ViewQuestion');
+
+
+Route::get('/ViewQuestion/{id}', function ($id) {
+    return Inertia::render('ViewQuestion', [
+        'id' => $id, // Kirim ID ke halaman Inertia
+    ]);
+})->name('ViewQuestion');
