@@ -17,11 +17,13 @@ Route::get('/ProfileUser', function () {
     return Inertia::render('ProfileUser', []);
 })->name('ProfileUser');
 
+
 Route::get('/ViewQuestion/{id}', function ($id) {
     return Inertia::render('ViewQuestion', [
         'id' => $id, // Kirim ID ke halaman Inertia
     ]);
 })->name('ViewQuestion');
+
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

@@ -36,7 +36,7 @@ export default function ViewQuestion() {
                     <span className="loading loading-infinity loading-lg"></span>
                 </div>
     }
-
+    
     if (!question) {
         return <div>Question not found.</div>;
     }
@@ -64,8 +64,8 @@ export default function ViewQuestion() {
                             |
                             <p className="font-semibold">{dayjs(question.created_at).fromNow()}</p>
                         </div>
-                        <h1 className=" w-full ">{question.title} </h1>
-
+                        <h1 className="font-bold text-2xl  w-full ">{question.title} </h1>
+                            <h1 className="text-lg">{question.content}</h1>
                         <div className=" w-full ">
                             <LabelButton
                             // htmlFor={}
@@ -74,7 +74,9 @@ export default function ViewQuestion() {
                             >
                             </LabelButton>
                         </div>
-                    </div>
+                    </div>  
+
+
 
 
                     {/* Jawaban */}
