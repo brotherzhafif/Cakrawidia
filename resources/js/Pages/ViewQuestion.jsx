@@ -6,6 +6,11 @@ import LayoutApp from "@/Layouts/LayoutApp";
 import Layout3Grid from "@/Layouts/Layout3Grid";
 import Navbar from "@/partials/Navbar";
 import Footer from "@/partials/Footer";
+import LabelButton from "@/Components/Buttons/LabelBtn";
+import dayjs from "dayjs";
+import relativeTime from "dayjs/plugin/relativeTime";
+import "dayjs/locale/id";
+dayjs.extend(relativeTime);
 
 export default function ViewQuestion() {
     const { id } = usePage().props; // Ambil ID dari URL melalui Inertia props
@@ -13,6 +18,7 @@ export default function ViewQuestion() {
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
+        dayjs.locale("id");
         axios.get(`/api/questions/${id}`)
             .then((response) => {
                 setQuestion(response.data); // Set data pertanyaan dari API
@@ -26,7 +32,9 @@ export default function ViewQuestion() {
     }, [id]);
 
     if (loading) {
-        return <div>Loading...</div>;
+        return  <div className="flex rounded-xl col-span-12 md:col-span-6 animate-pulse bg-gray-200 items-center justify-center h-screen">
+                    <span className="loading loading-infinity loading-lg"></span>
+                </div>
     }
 
     if (!question) {
@@ -39,34 +47,84 @@ export default function ViewQuestion() {
         <LayoutApp>
             <Navbar />
                 <Layout3Grid>
-                <div className="bg-red-500 col-span-12 flex flex-col gap-3 w-full min-h-screen">
+                <div className=" col-span-12 md:col-span-8 flex flex-col gap-3 w-full p-1 min-h-screen">
                     {/* Informasi pengguna dan topik */}
-                    <div className="bg-green-400 flex flex-col items-start p-4">
-                        <div className="flex mt-2 gap-1 text-sm ">
+                    <div className="border rounded-md border-secondary flex flex-col gap-4 p-4 items-start ">
+                        <div className="flex w-full gap-1 items-center text-sm ">
+                            <div className="avatar">
+                                <div className="w-10 rounded-full">
+                                    <img
+                                        src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp"
+                                        alt="Avatar"/>
+                                </div>
+                            </div>
                             <p className="font-semibold">{question.user?.username || "Anonim"}</p>
                             |
                             <p className="font-semibold">{question.topic?.name || "Tidak diketahui"}</p>
+                            |
+                            <p className="font-semibold">{dayjs(question.created_at).fromNow()}</p>
                         </div>
-                        <h1 className="text-2xl font-bold">{question.title}</h1>
+                        <h1 className=" w-full ">{question.title} </h1>
+
+                        <div className=" w-full ">
+                            <LabelButton
+                            // htmlFor={}
+                            label={"Tambahkan jawaban"}
+                            className={"btn "}
+                            >
+                            </LabelButton>
+                        </div>
                     </div>
+
+
                     {/* Jawaban */}
-                    <div className="bg-blue-200">
-                        <h2 className="text-xl font-semibold">Jawaban</h2>
+                    <div className="flex flex-col  w-full border border-secondary   rounded-md">
+                        <h2 className="text-3xl p-4 font-bold">Jawaban</h2>
                         {question.answers.length > 0 ? (
                             question.answers.map((answer) => (
-                                <div key={answer.id} className="mt-4 p-4 bg-gray-100 rounded">
-                                    <p>{answer.content}</p>
-                                    <p className="text-sm text-gray-500">
-                                        Ditulis oleh {answer.user?.username || "Anonim"}
-                                    </p>
+                                <div key={answer.id} className="gap-2 flex flex-col p-4 border-t border-secondary  min-h-[100px] ">
+                                    <div className="flex gap-1 font-semibold items-center justify-start ">
+                                        <div className="avatar">
+                                            <div className="w-10 rounded-full">
+                                                <img
+                                                    src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp"
+                                                    alt="Avatar"/>
+                                            </div>
+                                        </div>
+                                    <p className="text-sm ">{answer.user?.username || "Anonim"}</p>
+                                    </div>
+                                    <p className="w-full ">{answer.content}</p>
+
+                                    <div className=" ">
+
+                                    </div>
                                 </div>
                             ))
                         ) :
                         // Tampilkan pesan jika tidak ada jawaban
                         (
-                            <p className="mt-4 text-gray-700">Belum ada jawaban.</p>
+                            <p className="p-4 flex justify-center items-center min-h-[200px]">Belum ada jawaban.</p>
                         )}
                     </div>
+                </div>
+
+                <div className=" border border-secondary flex-col  rounded-md   hidden md:flex col-span-4">
+                    <div className="flex  border-secondary p-4 rounded-md  justify-start items-center  gap-2">
+                        <div className="avatar">
+                                <div className="w-28 rounded-full">
+                                    <img
+                                        src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp"
+                                        alt="Avatar"/>
+                                </div>
+                        </div>
+                        <div className="flex flex-col">
+                            <p className="font-semibold text-sm">Nama users </p>
+                            <p className="badge badge-warning">2222 poin</p>
+                        </div>
+                    </div>
+                        <div className=" flex justify-center btn btn-outline cursor-pointer  items-center border-t border-secondary p-4">
+                            Lihat pencapaian saya
+                        </div>
                 </div>
                 </Layout3Grid>
             <Footer />
