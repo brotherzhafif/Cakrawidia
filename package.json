@@ -5,6 +5,7 @@
         "dev": "concurrently \"npm run dev-react\" \"npm run dev-laravel\"",
         "dev-react": "vite",
         "dev-laravel": "php artisan serve",
+        "start": "serve -s dist",
         "build": "vite build"
     },
     "devDependencies": {
@@ -24,6 +25,7 @@
         "vite": "^5.0"
     },
     "dependencies": {
-        "dayjs": "^1.11.13"
+        "dayjs": "^1.11.13",
+        "serve": "^14.2.4"
     }
 }
