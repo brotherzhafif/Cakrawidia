@@ -1,0 +1,15 @@
+{
+    "private": true,
+    "type": "module",
+    "scripts": {
+        "dev": "concurrently \"npm run dev-react\" \"npm run dev-laravel\"",
+        "dev-react": "vite",
+        "dev-laravel": "php artisan serve",
+        "build": "vite build"
+    },
+    "devDependencies": {
+        "autoprefixer": "^10.4.20",
+        "postcss": "^8.4.49",
+        "vite": "^5.0"
+    }
+}
