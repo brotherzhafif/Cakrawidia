@@ -1,34 +1,27 @@
 <?php
 
-use App\Http\Controllers\ProfileController;
-use Illuminate\Foundation\Application;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\TopicController;
+use App\Http\Controllers\QuestionController;
+use App\Http\Controllers\AnswerController;
+use App\Http\Controllers\LikeController;
 use Illuminate\Support\Facades\Route;
-use Inertia\Inertia;
 
 Route::get('/', function () {
-    return Inertia::render('Home');
-})->name('Home');
+    return "Hello World";
+});
 
-Route::get('/dashboard', function () {
-    return Inertia::render('Dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+Route::middleware('api')->group(function () {
+    Route::apiResource('users', UserController::class);
+    Route::apiResource('topics', TopicController::class);
+    Route::apiResource('questions', QuestionController::class);
+    Route::get('/questions/{id}', [QuestionController::class, 'show']);
+    Route::apiResource('answers', AnswerController::class);
 
-Route::get('/ProfileUser', function () {
-    return Inertia::render('ProfileUser', []);
-})->name('ProfileUser');
-
-
-Route::get('/ViewQuestion/{id}', function ($id) {
-    return Inertia::render('ViewQuestion', [
-        'id' => $id, // Kirim ID ke halaman Inertia
-    ]);
-})->name('ViewQuestion');
-
-
-Route::middleware('auth')->group(function () {
-    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+    Route::get('likes', [LikeController::class, 'index']);
+    Route::get('likes/{entityType}/{entityId}', [LikeController::class, 'getLikesByEntity']);
+    Route::post('likes', [LikeController::class, 'store']);
+    Route::delete('likes/{id}', [LikeController::class, 'destroy']);
 });
 
 require __DIR__.'/auth.php';
