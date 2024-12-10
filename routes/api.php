@@ -4,6 +4,7 @@ use App\Http\Controllers\Auth\AuthenticatedSessionController;
 use App\Http\Controllers\Auth\RegisteredUserController;
 use App\Http\Controllers\Auth\VerifyEmailController;
 use App\Http\Controllers\Auth\EmailVerificationPromptController;
+use App\Http\Controllers\AuthController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\TopicController;
 use App\Http\Controllers\QuestionController;
@@ -45,3 +46,6 @@ Route::middleware('auth:api')->group(function () {
     Route::post('logout', [AuthenticatedSessionController::class, 'destroy'])
         ->name('logout');
 });
+
+Route::middleware('jwt.auth')->get('/me', [AuthController::class, 'getAuthenticatedUser']);
+
