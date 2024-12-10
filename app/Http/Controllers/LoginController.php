@@ -6,10 +6,11 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
+use Tymon\JWTAuth\Facades\JWTAuth;  // Import JWTAuth
 
 class LoginController extends Controller
 {
-    // API Login
+    // API Login menggunakan JWT
     public function apiLogin(Request $request)
     {
         $credentials = $request->validate([
@@ -18,9 +19,15 @@ class LoginController extends Controller
         ]);
 
         if (Auth::attempt($credentials)) {
-            $request->session()->regenerate();
+            // Generate JWT token
+            $user = Auth::user();
+            $token = JWTAuth::fromUser($user);  // Buat token dari user yang terautentikasi
 
-            return response()->json(['message' => 'Login successful'], 200);
+            // Kembalikan token di dalam response
+            return response()->json([
+                'message' => 'Login successful',
+                'token' => $token,  // Kirim token JWT ke client
+            ], 200);
         }
 
         return response()->json(['error' => 'Invalid credentials'], 401);
@@ -29,9 +36,8 @@ class LoginController extends Controller
     // API Logout
     public function apiLogout(Request $request)
     {
-        Auth::logout();
-        $request->session()->invalidate();
-        $request->session()->regenerateToken();
+        // Hapus token dan logout dari JWT
+        JWTAuth::invalidate(JWTAuth::getToken());
 
         return response()->json(['message' => 'Logout successful'], 200);
     }
