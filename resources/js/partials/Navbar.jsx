@@ -1,7 +1,7 @@
 
 import { useState } from 'react';
 import { Link } from '@inertiajs/react';
-import Logo from './Logo';
+import Logo from './Logo';  
 import LabelButton from '@/Components/Buttons/LabelBtn';
 import Sidebar from './Sidebar';
 import SearchInput from '@/Components/SearchInput';

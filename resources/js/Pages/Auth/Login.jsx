@@ -32,6 +32,9 @@ export default function Login({ status, canResetPassword }) {
             )}
 
             <form onSubmit={submit}>
+                {/* CSRF Token */}
+                <input type="hidden" name="_token" value={csrf_token()} />
+
                 <div>
                     <InputLabel htmlFor="email" value="Email" />
 

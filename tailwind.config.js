@@ -30,6 +30,6 @@ export default {
     ],
 
     daisyui: {
-        themes: true,
+        themes: false,
     },
 };

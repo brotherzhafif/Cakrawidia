@@ -1,5 +1,6 @@
 
 import { useState } from "react";
+
 import { Head } from "@inertiajs/react";
 import LayoutApp from "@/Layouts/LayoutApp.jsx";
 import Navbar from "@/partials/Navbar.jsx";
@@ -12,6 +13,7 @@ import ToolipBtn from "@/Components/Buttons/ToolipBtn.jsx";
 
 export default function Home() {
     const [searchQuery, setSearchQuery] = useState("");
+    
 
     return (
         <>
@@ -23,6 +25,7 @@ export default function Home() {
                     <QuestionsListCard searchQuery={searchQuery} />
                     <Leaderboard />
                 </Layout3Grid>
+
                 <ToolipBtn />
                 <Footer />
             </LayoutApp>
