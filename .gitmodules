@@ -1,0 +1,6 @@
+[submodule "Cakrawidia-FE"]
+	path = Cakrawidia-FE
+	url = https://github.com/9riffegndi/Cakrawidia-FE.git
+[submodule "Cakrawidia_API"]
+	path = Cakrawidia_API
+	url = https://github.com/brotherzhafif/Cakrawidia_API.git
