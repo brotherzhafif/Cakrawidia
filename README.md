@@ -19,20 +19,7 @@ Cakrawidia adalah platform berbasis website yang menyediakan ruang diskusi untuk
    - Daftar peringkat pengguna dengan jumlah like terbanyak pada pertanyaan dan jawaban.  
 
 5. **Kategorisasi Topik**  
-   - Pertanyaan dikelompokkan berdasarkan topik untuk mempermudah pencarian.  
-
-## Fitur Tambahan ( Kalo Sempat Bikin )
-1. **Komentar**   
-   - Pengguna dapat memberikan komentar pada setiap pembahasan.  
-
-2. **Berbagi Materi**  
-   - Fitur untuk membagikan modul atau materi belajar.  
-
-3. **Sistem Like pada Materi**  
-   - Materi dengan jumlah like terbanyak akan tampil di leaderboard.  
-
-4. **Topik Hangat**  
-   - Menampilkan topik diskusi dan materi yang paling banyak dikunjungi di beranda.  
+   - Pertanyaan dikelompokkan berdasarkan topik untuk mempermudah pencarian.
 
 ## Persyaratan Sistem  
 - **C++ Redistributable Latest**  
@@ -55,12 +42,16 @@ git clone --recurse-submodules https://github.com/brotherzhafif/Cakrawidia.git
 1. Masuk ke folder **Cakrawidia-FE**:  
    ```bash
    cd Cakrawidia-FE
-   ```  
-2. Install dependensi menggunakan npm:  
+   ```
+2. Update Module repo Cakrawidia
+   ```bash
+   git submodule update --remote
+   ```    
+3. Install dependensi menggunakan npm:  
    ```bash
    npm install
    ```  
-3. Jalankan aplikasi frontend:  
+4. Jalankan aplikasi frontend:  
    ```bash
    npm start
    ```  
