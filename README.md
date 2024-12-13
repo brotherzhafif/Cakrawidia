@@ -21,6 +21,9 @@ Cakrawidia adalah platform berbasis website yang menyediakan ruang diskusi untuk
 5. **Kategorisasi Topik**  
    - Pertanyaan dikelompokkan berdasarkan topik untuk mempermudah pencarian.
 
+6. **Personalisasi Profil**  
+   - Memperbarui dan Mempersonalisasikan Profil Akun Sendiri.
+  
 ## Persyaratan Sistem  
 - **C++ Redistributable Latest**  
 - **Node.js 22.11.0**  
