@@ -49,11 +49,12 @@ class RegisteredUserController extends Controller
             'username' => strtolower(str_replace(' ', '_', $request->name)),
         ]);
         
-
+        
         event(new Registered($user));
 
         Auth::login($user);
 
         return redirect(route('login', absolute: false));
+        return response()->json(['status' => 'Maybe'], 200);
     }
 }

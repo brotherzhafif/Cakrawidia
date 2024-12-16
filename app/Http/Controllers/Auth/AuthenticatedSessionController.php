@@ -4,9 +4,8 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Auth\LoginRequest;
-use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
+use Tymon\JWTAuth\Facades\JWTAuth;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 use Inertia\Response;
@@ -27,26 +26,27 @@ class AuthenticatedSessionController extends Controller
     /**
      * Handle an incoming authentication request.
      */
-    public function store(LoginRequest $request): RedirectResponse
+    public function store(LoginRequest $request)
     {
-        $request->authenticate();
+        // Validasi kredensial dan menghasilkan JWT token
+        $credentials = $request->only('email', 'password');
 
-        $request->session()->regenerate();
+        if ($token = JWTAuth::attempt($credentials)) {
+            // Kembalikan token JWT dalam response
+            return response()->json(['token' => $token], 200);
+        }
 
-        return redirect()->intended(route('/', absolute: false));
+        return response()->json(['error' => 'Unauthorized'], 401);
     }
 
     /**
      * Destroy an authenticated session.
      */
-    public function destroy(Request $request): RedirectResponse
+    public function destroy(Request $request)
     {
-        Auth::guard('web')->logout();
+        // Logout menggunakan JWT
+        JWTAuth::invalidate(JWTAuth::getToken());
 
-        $request->session()->invalidate();
-
-        $request->session()->regenerateToken();
-
-        return redirect('/');
+        return response()->json(['message' => 'Logged out successfully'], 200);
     }
 }
